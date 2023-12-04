@@ -1,0 +1,24 @@
+# output_dir: "/data/ess/output/State_Estimation/Operating-OCV_new"
+data_dir: "/data/jan4021/0001_NOISE_SRGB"
+# output_dir: "/home/ess/year345/State_Estimation/ESS/Operating-OCV-result"
+# output_name: "/cnn"
+debug: false
+seed: 0
+
+reproduce: false
+
+# parameter
+epochs: 200
+decay: 0.98
+
+# data
+train_batch_size: 32
+test_batch_size : 8
+num_workers: 0
+drop_last: false
+loss_fn: 'L1Loss'
+  
+
+split_ratio: [90,10,0]    # train, val, test
+image_size: 32
+sigma: 0.01
