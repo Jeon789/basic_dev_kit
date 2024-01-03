@@ -66,7 +66,7 @@ class SIDD_RN_DL(DataLoader):
             self.shuffle = True
 
 
-        super(SIDD_RN_DS,self).__init__(dataset=dataset, batch_size=self.batch_size, shuffle=self.shuffle, num_workers=config['num_workers'], drop_last=config['drop_last'], *args, **kwargs)
+        super(SIDD_RN_DL,self).__init__(dataset=dataset, batch_size=self.batch_size, shuffle=self.shuffle, num_workers=config['num_workers'], drop_last=config['drop_last'], *args, **kwargs)
         self.seconds = config['seconds']
 
 
@@ -87,7 +87,7 @@ def build_loader(config):
         ])
 
     train, val, test = SIDD_RN_DS(config, train_files, transforms=transform), SIDD_RN_DS(config, val_files, transforms=transform), SIDD_RN_DS(config, test_files, transforms=transform)
-    train_loader, val_loader, test_loader = SIDD_RN_DS(config, train, mode='train'), SIDD_RN_DS(config, val, mode='test'), SIDD_RN_DS(config, test, mode='test')
+    train_loader, val_loader, test_loader = SIDD_RN_DL(config, train, mode='train'), SIDD_RN_DL(config, val, mode='test'), SIDD_RN_DL(config, test, mode='test')
 
     print(f'It takes {time.time()-start:.2f} seconds for dataset&dataloader')
 

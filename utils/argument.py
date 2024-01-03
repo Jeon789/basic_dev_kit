@@ -1,5 +1,6 @@
 import argparse
 from .util import str2bool
+import ast
 
 def create_argparser():
     defaults = dict(
@@ -43,6 +44,7 @@ def args_to_dict(args, keys):
 parser = argparse.ArgumentParser()
 parser.add_argument('--yaml', type=str, default='/home/jan4021/zzz/config.yaml')
 
+parser.add_argument('--dummy', type=ast.literal_eval, default="[1,2,3,4,5]", help='this argument change str to list or dict. Magic!')
 
 
 # parser.add_argument('--site', type=str, default='sionyu')
